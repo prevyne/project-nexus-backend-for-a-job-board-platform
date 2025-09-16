@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #Third pasty apps
     'rest_framework',
     'corsheaders',
+    'rest_framework_simplejwt',
     #Local apps
     'jobs',
 ]
@@ -82,7 +83,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'jobs_db',
-        'USER': 'prevyne',
+        'USER': 'admin',
         'PASSWORD': 'Administrator1!',
         'HOST': 'localhost',
         'PORT': '5432',
@@ -132,3 +133,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+AUTH_USER_MODEL = 'jobs.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
