@@ -37,3 +37,9 @@ class JobCreateUpdateSerializer(serializers.ModelSerializer):
             'title', 'company', 'description', 'location', 
             'job_type', 'category'
         ]
+        extra_kwargs = {
+            'category': {
+                'required': False,
+                'allow_null': True
+            }
+        }
