@@ -27,7 +27,7 @@ schema_view = get_schema_view(
         title = "Job Board API",
         default_version = 'v1',
         description = "API Documentation for Project Nexus Job Board Platform",
-        contact = openapi.Contact(email="contact@jobboard.local"),
+        contact = openapi.Contact(email="prevyneoketch6@gmail.com"),
         licence = openapi.License(name = "BSD Licence"),
      ),
     public = True,

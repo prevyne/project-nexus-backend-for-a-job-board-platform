@@ -1,15 +1,5 @@
-# Virtual Environment
 django_env/
 
 # Python cache
 __pycache__/
 *.pyc
-
-# Database
-db.sqlite3
-
-# Static files
-staticfiles/
-
-# Media files
-media/
