@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: job-board
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn job_board.wsgi --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: job_board.settings
+      - key: PYTHON_VERSION
+        value: 3.11
