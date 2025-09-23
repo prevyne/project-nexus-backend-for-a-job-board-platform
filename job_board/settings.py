@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -164,3 +166,9 @@ SWAGGER_SETTINGS = {
       }
    }
 }
+
+load_dotenv()
+
+#Celery Configs
+CELERY_BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379")
+CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL", "redis://localhost:6379")
