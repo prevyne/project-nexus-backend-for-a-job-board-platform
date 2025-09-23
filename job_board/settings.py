@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,15 +83,11 @@ WSGI_APPLICATION = 'job_board.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+env = environ.Env()
+environ.Env.read_env()
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jobs_db',
-        'USER': 'admin',
-        'PASSWORD': 'Administrator1!',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': env.db("DATABASE_URL")
 }
 
 
@@ -168,8 +164,6 @@ SWAGGER_SETTINGS = {
       }
    }
 }
-
-load_dotenv()
 
 #Celery Configs
 CELERY_BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379")
