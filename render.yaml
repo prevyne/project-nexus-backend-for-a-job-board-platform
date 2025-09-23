@@ -9,11 +9,11 @@ services:
     ipAllowList: []
     
   - type: web
-    name: project_nexus_job_board
+    name: job_board
     env: python
     plan: free
     buildCommand: "./build.sh"
-    startCommand: "gunicorn project_nexus_job_board.wsgi"
+    startCommand: "gunicorn job_board.wsgi"
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.13
@@ -35,7 +35,7 @@ services:
     name: celery-worker_2
     env: python
     buildCommand: "./build.sh"
-    startCommand: "python -m celery -A project_nexus_job_board worker -l info"
+    startCommand: "python -m celery -A job_board worker -l info"
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.13
