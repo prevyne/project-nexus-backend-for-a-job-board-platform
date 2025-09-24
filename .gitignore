@@ -6,6 +6,3 @@ __pycache__/
 
 # environment variables
 .env
-
-# Staticfiles
-staticfiles/
